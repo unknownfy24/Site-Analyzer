@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: 'Inter', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: #080808;
+  color: #ffffff;
+  font-family: var(--font-inter);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #111111;
+}
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00BFA5;
+}
+
+/* Score ring animation */
+.score-ring-fill {
+  stroke-dasharray: 251.2;
+  stroke-dashoffset: 251.2;
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.score-ring-fill.animated {
+  stroke-dashoffset: var(--offset);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #00BFA5 0%, #00D4B8 50%, #7FFFD4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card hover glow */
+.card-glow:hover {
+  box-shadow: 0 0 30px rgba(0, 191, 165, 0.08), 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* Teal button */
+.btn-teal {
+  background: #00BFA5;
+  color: #080808;
+  font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-teal:hover {
+  background: #00D4B8;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0, 191, 165, 0.35);
+}
+
+.btn-teal:active {
+  transform: translateY(0);
+}
+
+/* Input focus */
+.url-input:focus {
+  outline: none;
+  border-color: #00BFA5;
+  box-shadow: 0 0 0 3px rgba(0, 191, 165, 0.15);
+}
+
+/* Shimmer loading effect */
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+.shimmer {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(to right, #111111 4%, #1a1a1a 25%, #111111 36%);
+  background-size: 1000px 100%;
+}
+
+/* Recommendation badge colors */
+.badge-performance { background: rgba(59, 130, 246, 0.15); color: #60A5FA; border-color: rgba(59, 130, 246, 0.3); }
+.badge-accessibility { background: rgba(168, 85, 247, 0.15); color: #C084FC; border-color: rgba(168, 85, 247, 0.3); }
+.badge-seo { background: rgba(0, 191, 165, 0.15); color: #00BFA5; border-color: rgba(0, 191, 165, 0.3); }
+.badge-best-practices { background: rgba(251, 146, 60, 0.15); color: #FB923C; border-color: rgba(251, 146, 60, 0.3); }
+
+/* Score color classes */
+.score-poor { color: #FF3B30; }
+.score-average { color: #FF9500; }
+.score-good { color: #00BFA5; }
+
+.ring-poor { stroke: #FF3B30; }
+.ring-average { stroke: #FF9500; }
+.ring-good { stroke: #00BFA5; }
